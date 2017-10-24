@@ -1,6 +1,13 @@
-@Test
-public void JsonPathUsage() throws MalformedURLException
-{
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import io.restassured.http.Method;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+ 
+public class RestAPITest {
+ @Test
+ public void JsonPathUsage() throws MalformedURLException
+ {
 	RestAssured.baseURI = "http://restapi.demoqa.com/utilities/books/getallbooks";
 	RequestSpecification httpRequest = RestAssured.given();
 	Response response = httpRequest.get("");
@@ -18,4 +25,6 @@ public void JsonPathUsage() throws MalformedURLException
 	{
 		System.out.println("Book: " + book.title);
 	}
+ }
+	
 }
